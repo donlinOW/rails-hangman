@@ -10,7 +10,7 @@ class Game < ApplicationRecord
   end
 
   def random_word
-    File.readlines(Rails.root.join('words.txt')).map(&:chomp).sample
+    File.readlines(Rails.root.join('lib', 'words.txt')).map(&:chomp).sample
   end
 
   def game_over?
