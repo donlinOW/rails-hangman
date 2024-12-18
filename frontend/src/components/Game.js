@@ -23,10 +23,12 @@ const Game = () => {
 
   if (!game) return <div>Loading...</div>;
 
+  const formattedWord = game.word.split('').join(' ');
+
   return (
     <div>
       <h1>Game {game.id}</h1>
-      <p>Word: {game.word}</p>
+      <p>Word: {formattedWord}</p>
       <p>Lives: {game.lives}</p>
       <p>Guessed Letters: {game.guessed_letters.join(', ')}</p>
       <p>State: {game.state}</p>
