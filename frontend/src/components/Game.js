@@ -27,7 +27,7 @@ const Game = () => {
 
   return (
     <div>
-      <h1>Game {game.id}</h1>
+      <h1>Game {id}</h1>
       <p>Word: {formattedWord}</p>
       <p>Lives: {game.lives}</p>
       <p>Guessed Letters: {game.guessed_letters.join(', ')}</p>
