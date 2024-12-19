@@ -18,6 +18,11 @@ const GameList = () => {
     setGames([...games, response.data]);
   };
 
+  const deleteGame = async (id) => {
+    await axios.delete(`/games/${id}`);
+    setGames(games.filter(game => game.id !== id));
+  };
+
   return (
     <div>
       <h1>Hangman Games</h1>
@@ -26,6 +31,7 @@ const GameList = () => {
         {games.map(game => (
           <li key={game.id}>
             <Link to={`/games/${game.id}`}>Game {game.id}</Link>
+            <button onClick={() => deleteGame(game.id)}>Delete</button>
           </li>
         ))}
       </ul>
