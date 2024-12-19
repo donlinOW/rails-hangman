@@ -1,0 +1,19 @@
+.game-list {
+  list-style-type: none; 
+  padding: 0;
+}
+
+.game-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
+}
+
+.game-link {
+  margin-right: 10px;
+}
+
+.delete-button {
+  margin-left: 10px;
+}
