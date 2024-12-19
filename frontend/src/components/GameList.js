@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../axiosConfig'; 
 import { Link } from 'react-router-dom';
+import './GameList.css'; 
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -27,11 +28,11 @@ const GameList = () => {
     <div>
       <h1>Hangman Games</h1>
       <button onClick={startNewGame}>Start New Game</button>
-      <ul>
+      <ul className="game-list">
         {games.map(game => (
-          <li key={game.id}>
-            <Link to={`/games/${game.id}`}>Game {game.id}</Link>
-            <button onClick={() => deleteGame(game.id)}>Delete</button>
+          <li key={game.id} className="game-item">
+            <Link to={`/games/${game.id}`} className="game-link">Game {game.id}</Link>
+            <button onClick={() => deleteGame(game.id)} className="delete-button">Delete</button>
           </li>
         ))}
       </ul>
