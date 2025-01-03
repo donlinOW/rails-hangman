@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  lives: 1
+  guessed_letters: MyString
+  display: MyString
+  state: MyString
+
+two:
+  word: MyString
+  lives: 1
+  guessed_letters: MyString
+  display: MyString
+  state: MyString
