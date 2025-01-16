@@ -12,11 +12,11 @@
 
 ActiveRecord::Schema[7.2].define(version: 2024_12_11_213650) do
   create_table "games", force: :cascade do |t|
-    t.string "word"
-    t.integer "lives"
-    t.string "guessed_letters"
-    t.string "display"
-    t.string "state"
+    t.string "word", null: false
+    t.integer "lives", default: 9, null: false
+    t.string "guessed_letters", default: "", null: false
+    t.string "display", null: false
+    t.string "state", default: "in_progress", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
