@@ -22,6 +22,8 @@ class GamesController < ApplicationController
       guessed_letters: game.guessed_letters.split(''),
       state: game.state
     }
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Game not found' }, status: :not_found
   end
 
   # guess a letter
@@ -34,6 +36,8 @@ class GamesController < ApplicationController
       guessed_letters: game.guessed_letters.split(''),
       state: game.state
     }
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Game not found' }, status: :not_found
   end
 
   # delete a game
@@ -41,5 +45,7 @@ class GamesController < ApplicationController
     game = Game.find(params[:id])
     game.destroy
     head :no_content
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Game not found' }, status: :not_found
   end
 end
