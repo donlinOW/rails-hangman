@@ -7,11 +7,11 @@ class Game < ApplicationRecord
   end
 
   def random_word
-    File.readlines(Rails.root.join('lib', 'words.txt')).map(&:chomp).sample
+    File.readlines(Rails.root.join("lib", "words.txt")).map(&:chomp).sample
   end
 
   def game_over?
-    state == 'won' || state == 'lost'
+    state == "won" || state == "lost"
   end
 
   def process_guess(guess)
@@ -35,13 +35,13 @@ class Game < ApplicationRecord
   end
 
   def check_win
-    self.state = 'won' if display == word
+    self.state = "won" if display == word
   end
 
   def check_loss
     if lives <= 0
-      self.state = 'lost'
-      self.display = word 
+      self.state = "lost"
+      self.display = word
     end
   end
 end

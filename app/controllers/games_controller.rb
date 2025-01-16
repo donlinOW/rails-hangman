@@ -19,11 +19,11 @@ class GamesController < ApplicationController
     render json: {
       word: game.display,
       lives: game.lives,
-      guessed_letters: game.guessed_letters.split(''),
+      guessed_letters: game.guessed_letters.split(""),
       state: game.state
     }
   rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Game not found' }, status: :not_found
+    render json: { error: "Game not found" }, status: :not_found
   end
 
   # guess a letter
@@ -33,11 +33,11 @@ class GamesController < ApplicationController
     render json: {
       word: game.display,
       lives: game.lives,
-      guessed_letters: game.guessed_letters.split(''),
+      guessed_letters: game.guessed_letters.split(""),
       state: game.state
     }
   rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Game not found' }, status: :not_found
+    render json: { error: "Game not found" }, status: :not_found
   end
 
   # delete a game
@@ -46,6 +46,6 @@ class GamesController < ApplicationController
     game.destroy
     head :no_content
   rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Game not found' }, status: :not_found
+    render json: { error: "Game not found" }, status: :not_found
   end
 end
