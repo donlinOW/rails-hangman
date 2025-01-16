@@ -28,7 +28,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", '~> 7.0.0', require: false
+  gem "brakeman", "~> 7.0.0", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
@@ -38,7 +38,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
 
   # Add RSpec for testing
-  gem 'rspec-rails', '~> 7.0.0'
+  gem "rspec-rails", "~> 7.0.0"
 end
 
 group :development do
