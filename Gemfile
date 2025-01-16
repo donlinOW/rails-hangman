@@ -36,6 +36,9 @@ group :development, :test do
   # Add RuboCop for linting
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
+
+  # Add RSpec for testing
+  gem 'rspec-rails', '~> 7.0.0'
 end
 
 group :development do
