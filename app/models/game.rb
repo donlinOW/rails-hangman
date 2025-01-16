@@ -2,9 +2,6 @@ class Game < ApplicationRecord
   before_create :initialize_game
 
   def initialize_game
-    self.lives = 9
-    self.guessed_letters = ''
-    self.state = 'in_progress'
     self.word = random_word
     self.display = "_" * word.length
   end
