@@ -42,6 +42,9 @@ class Game < ApplicationRecord
   end
 
   def check_loss
-    self.state = 'lost' if lives <= 0
+    if lives <= 0
+      self.state = 'lost'
+      self.display = word 
+    end
   end
 end
