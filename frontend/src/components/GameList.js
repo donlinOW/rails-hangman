@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from '../axiosConfig'; 
 import { Link } from 'react-router-dom';
 import './GameList.css'; 
@@ -14,15 +14,23 @@ const GameList = () => {
     fetchGames();
   }, []);
 
-  const startNewGame = async () => {
+  const startNewGame = useCallback(async () => {
     const response = await axios.post('/games');
     setGames([...games, response.data]);
-  };
+  }, [games]);
 
-  const deleteGame = async (id) => {
-    await axios.delete(`/games/${id}`);
-    setGames(games.filter(game => game.id !== id));
-  };
+  const deleteGame = useCallback(async (id) => {
+    try {
+      await axios.delete(`/games/${id}`);
+      setGames(games.filter(game => game.id !== id));
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        alert('Game not found');
+      } else {
+        alert('An error occurred while deleting the game');
+      }
+    }
+  }, [games]);
 
   return (
     <div>
