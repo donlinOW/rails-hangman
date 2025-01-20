@@ -18,4 +18,21 @@ RSpec.describe Game, type: :model do
       expect(words).to include(word)
     end
   end
+
+  describe '#game_over?' do
+    it 'returns true if the game is won' do
+      game = Game.new(state: 'won')
+      expect(game.game_over?).to be true
+    end
+
+    it 'returns true if the game is lost' do
+      game = Game.new(state: 'lost')
+      expect(game.game_over?).to be true
+    end
+
+    it 'returns false if the game is in progress' do
+      game = Game.new(state: 'in_progress')
+      expect(game.game_over?).to be false
+    end
+  end
 end
